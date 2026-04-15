@@ -1,0 +1,6 @@
+---
+dotnet_app_port: 5000
+dotnet_app_user: ubuntu
+dotnet_app_env:
+  ASPNETCORE_ENVIRONMENT: Production
+  ASPNETCORE_URLS: "http://localhost:5000"

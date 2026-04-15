@@ -1,0 +1,19 @@
+[Unit]
+Description=.{{ dotnet_app_name | capitalize }} .NET Application
+After=network.target
+
+[Service]
+WorkingDirectory={{ dotnet_app_path }}
+ExecStart={{ dotnet_app_path }}/{{ dotnet_app_name }} --urls http://localhost:{{ dotnet_app_port }}
+User={{ dotnet_app_user }}
+Restart=always
+RestartSec=10
+
+{% if dotnet_app_env %}
+{% for key, value in dotnet_app_env.items() %}
+Environment="{{ key }}={{ value }}"
+{% endfor %}
+{% endif %}
+
+[Install]
+WantedBy=multi-user.target

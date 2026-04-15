@@ -1,0 +1,33 @@
+# Количество реплик приложения
+replicaCount: 1
+
+# Настройки образа
+image:
+  repository: python
+  pullPolicy: IfNotPresent
+  tag: "3.12-alpine"
+
+# Настройки сервиса
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 80
+
+# Настройки Ingress (внешний доступ через HTTP)
+ingress:
+  enabled: true
+  className: nginx
+  hosts:
+    - host: hello.local
+      paths:
+        - path: /hello
+          pathType: Prefix
+
+# Лимиты ресурсов
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 50m
+    memory: 64Mi

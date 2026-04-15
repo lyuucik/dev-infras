@@ -1,0 +1,39 @@
+---
+- name: Create app directory
+  ansible.builtin.file:
+    path: "{{ dotnet_app_path }}"
+    state: directory
+    owner: "{{ dotnet_app_user }}"
+    mode: '0755'
+
+- name: Extract app to target
+  ansible.builtin.unarchive:
+    src: ./publish/TaskTracker.Api.tar.gz  # локальный архив
+    dest: "{{ dotnet_app_path }"
+    owner: "{{ dotnet_app_user }}"
+    group: "{{ dotnet_app_user }}" 
+
+- name: Create systemd unit
+  ansible.builtin.template:
+    src: dotnet-app.service.j2
+    dest: /etc/systemd/system/{{ dotnet_app_name }}.service
+  notify: restart dotnet-app
+
+- name: Create nginx config
+  ansible.builtin.template:
+    src: dotnet-app.conf.j2
+    dest: /etc/nginx/sites-available/{{ dotnet_app_name }}
+  notify: reload nginx
+
+- name: Enable nginx site
+  ansible.builtin.file:
+    src: /etc/nginx/sites-available/{{ dotnet_app_name }}
+    dest: /etc/nginx/sites-enabled/{{ dotnet_app_name }}
+    state: link
+  notify: reload nginx
+
+- name: Start application
+  ansible.builtin.systemd:
+    name: "{{ dotnet_app_name }}"
+    state: started
+    enabled: yes

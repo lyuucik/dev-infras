@@ -1,0 +1,51 @@
+
+### --- Секреты и ключи (Важно!) ---
+*.pem
+*.key
+*.pub
+*.pfx
+*.crt
+# Файлы переменных окружения
+.env
+.env.*
+!.env.example
+
+### --- Terraform ---
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+.terraform.lock.hcl
+
+### --- Ansible ---
+*.retry
+# Если используешь vault, но забыл зашифровать (лучше перебдеть)
+# *vault* 
+
+### --- Helm & Kubernetes ---
+charts/
+# Файлы kubeconfig
+kubeconfig
+config
+.kube/
+
+### --- Docker ---
+.docker/
+docker-compose.override.yml
+
+### --- Python (для скриптов и Ansible) ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+
+### --- Локальные настройки IDE ---
+.idea/
+.vscode/
+*.swp
+.DS_Store (macOS)

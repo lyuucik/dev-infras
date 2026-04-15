@@ -1,0 +1,4 @@
+---
+# Переменные для роли (обычно не меняются)
+nginx_config_path: /etc/nginx/sites-available
+nginx_enabled_path: /etc/nginx/sites-enabled

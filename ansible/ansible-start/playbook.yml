@@ -1,0 +1,27 @@
+# - name: Install and configure Docker
+#   hosts: all
+#   become: yes
+#   gather_facts: yes
+#
+#   roles:
+#     - docker
+
+- name: Install and configure Nginx
+  hosts: all
+  become: yes
+  
+  roles:
+    - nginx
+
+- name: Deploy .NET Application
+  hosts: all
+  become: yes
+  
+  vars:
+    dotnet_app_source: ./publish/
+    dotnet_app_path: /home/ubuntu/app/
+    dotnet_app_user: ubuntu
+    dotnet_app_port: 5000
+  
+  roles:
+    - dotnet-app

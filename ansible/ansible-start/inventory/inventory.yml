@@ -1,0 +1,7 @@
+all:
+  children:
+    docker_servers:
+      hosts:
+        web01:
+          ansible_host: 93.77.187.198
+          ansible_user: ubuntu

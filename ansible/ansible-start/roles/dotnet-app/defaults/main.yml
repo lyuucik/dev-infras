@@ -1,0 +1,7 @@
+---
+dotnet_app_name: dotnet-app
+dotnet_app_path: /opt/dotnet-app
+dotnet_app_user: ubuntu
+dotnet_app_source: publish/
+dotnet_app_port: 5000
+dotnet_app_env: {}

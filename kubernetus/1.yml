@@ -1,0 +1,130 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Pod","metadata":{"annotations":{},"name":"myapp-pod","namespace":"dev"},"spec":{"containers":[{"image":"hello-world","imagePullPolicy":"Always","name":"myapp","ports":[{"containerPort":8888,"name":"webv","protocol":"TCP"}]}]}}
+    creationTimestamp: "2025-06-14T10:56:57Z"
+    name: myapp-pod
+    namespace: dev
+    resourceVersion: "18219"
+    uid: 2b92ffb3-1098-42c8-b03d-19180981fd6f
+  spec:
+    containers:
+    - image: hello-world
+      imagePullPolicy: Always
+      name: myapp
+      ports:
+      - containerPort: 8888
+        name: webv
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-68x9t
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: docker-desktop
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-68x9t
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-14T10:57:03Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-14T10:56:57Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-14T10:56:57Z"
+      message: 'containers with unready status: [myapp]'
+      reason: ContainersNotReady
+      status: "False"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-14T10:56:57Z"
+      message: 'containers with unready status: [myapp]'
+      reason: ContainersNotReady
+      status: "False"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-14T10:56:57Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://91897fac4b5a13955aa504251d0d4218b99ccc0fd4dce9587f6ef1d07170aeb1
+      image: hello-world:latest
+      imageID: docker-pullable://hello-world@sha256:940c619fbd418f9b2b1b63e25d8861f9cc1b46e3fc8b018ccfe8b78f19b8cc4f
+      lastState:
+        terminated:
+          containerID: docker://91897fac4b5a13955aa504251d0d4218b99ccc0fd4dce9587f6ef1d07170aeb1
+          exitCode: 0
+          finishedAt: "2025-06-14T10:58:37Z"
+          reason: Completed
+          startedAt: "2025-06-14T10:58:37Z"
+      name: myapp
+      ready: false
+      restartCount: 4
+      started: false
+      state:
+        waiting:
+          message: back-off 1m20s restarting failed container=myapp pod=myapp-pod_dev(2b92ffb3-1098-42c8-b03d-19180981fd6f)
+          reason: CrashLoopBackOff
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-68x9t
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 192.168.65.3
+    hostIPs:
+    - ip: 192.168.65.3
+    phase: Running
+    podIP: 10.1.0.11
+    podIPs:
+    - ip: 10.1.0.11
+    qosClass: BestEffort
+    startTime: "2025-06-14T10:56:57Z"
+kind: List
+metadata:
+  resourceVersion: ""
