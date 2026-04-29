@@ -1,0 +1,99 @@
+{
+	// --- Темы и Оформление (Nord-friendly) ---
+	"workbench.colorTheme": "Tokyo Night Storm",
+	"workbench.activityBar.location": "hidden",
+	"workbench.editor.showTabs": "single",
+	"workbench.editor.showIcons": false,
+	"workbench.statusBar.visible": true,
+	"window.commandCenter": false,
+	"breadcrumbs.enabled": false,
+	"editor.minimap.enabled": false,
+	"editor.glyphMargin": false, // Убираем поле для точек остановки
+	"editor.folding": false, // Убираем стрелочки сворачивания
+	// Убираем рамки для монолитности (под Nord)
+	"workbench.colorCustomizations": {
+		"sideBar.border": "#00000000",
+		"editorGroup.border": "#00000000",
+		"statusBar.border": "#00000000",
+		"editorLineNumber.foreground": "#4c566a77",
+		"editorLineNumber.activeForeground": "#88c0d0"
+	},
+	// --- Текст и Плавность ---
+	"editor.fontSize": 14,
+	"editor.lineHeight": 1.6, // Чуть больше воздуха
+	"editor.fontLigatures": true,
+	"editor.cursorBlinking": "smooth", // "phase" хорош, но "smooth" мягче
+	"editor.cursorSmoothCaretAnimation": "on",
+	"editor.smoothScrolling": true,
+	"editor.scrollBeyondLastLine": false,
+	"editor.renderWhitespace": "none", // Для истинного минимализма
+	"editor.wordWrap": "on", // Вместо линеек (rulers)
+	// --- Vim Logic (Исправлено) ---
+	"vim.useSystemClipboard": true,
+	"vim.useCtrlKeys": true,
+	"vim.hlsearch": true,
+	"vim.leader": "<space>",
+	"vim.easymotion": true,
+	"vim.handleKeys": {
+		"<C-f>": false,
+		"<C-p>": false,
+		"<C-s>": false,
+		"<C-z>": false
+	},
+	"vim.normalModeKeyBindingsNonRecursive": [
+		{
+			"before": [
+				"<leader>",
+				"f",
+				"f"
+			],
+			"commands": [
+				"workbench.action.quickOpen"
+			]
+		},
+		{
+			"before": [
+				"<leader>",
+				"f",
+				"w"
+			],
+			"commands": [
+				"workbench.action.findInFiles"
+			]
+		},
+		{
+			"before": [
+				"<leader>",
+				"b",
+				"b"
+			],
+			"commands": [
+				"workbench.action.showAllEditorsByMostRecent"
+			]
+		},
+		{
+			"before": [
+				"<leader>",
+				"/"
+			],
+			"commands": [
+				"editor.action.commentLine"
+			]
+		},
+		{
+			"before": [
+				"<leader>",
+				"n"
+			],
+			"commands": [
+				"workbench.action.toggleSidebarVisibility"
+			]
+		}
+	],
+	// --- Системное ---
+	"editor.formatOnSave": true,
+	"terminal.integrated.fontSize": 13,
+	"terminal.integrated.fontFamily": "'JetBrains Mono', monospace",
+	"terminal.integrated.cursorStyle": "line",
+	"workbench.sideBar.location": "right"
+}
