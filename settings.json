@@ -9,7 +9,7 @@
 	"breadcrumbs.enabled": false,
 	"editor.minimap.enabled": false,
 	"editor.glyphMargin": false,
-	"editor.folding": false, // Убираем стрелочки сворачивания
+	"editor.folding": true,
 	// Убираем рамки для монолитности (под Nord)
 	"workbench.colorCustomizations": {
 		"sideBar.border": "#00000000",
