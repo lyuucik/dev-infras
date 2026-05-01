@@ -8,7 +8,7 @@
 	"window.commandCenter": false,
 	"breadcrumbs.enabled": false,
 	"editor.minimap.enabled": false,
-	"editor.glyphMargin": false, // Убираем поле для точек остановки
+	"editor.glyphMargin": false,
 	"editor.folding": false, // Убираем стрелочки сворачивания
 	// Убираем рамки для монолитности (под Nord)
 	"workbench.colorCustomizations": {
