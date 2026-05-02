@@ -98,6 +98,42 @@
 			"before": ["<leader>", "d", "c"],
 			"commands": ["editor.debug.action.conditionalBreakpoint"]
 		},
+				{
+			"before": [
+				"g",
+				"d"
+			],
+			"commands": [
+				"editor.action.revealDefinition"
+			]
+		}, // Go to Definition (Перейти к определению)
+		{
+			"before": [
+				"g",
+				"i"
+			],
+			"commands": [
+				"editor.action.goToImplementation"
+			]
+		}, // Go to Implementation (К реализации)
+		{
+			"before": [
+				"g",
+				"r"
+			],
+			"commands": [
+				"editor.action.goToReferences"
+			]
+		}, // Показать все ссылки на символ в плавающем окне
+		{
+			"before": [
+				"<leader>",
+				"k"
+			],
+			"commands": [
+				"editor.action.showHover"
+			]
+		}, // Показать документацию/тип при наведении (вместо мышки)
 	],
 	// --- Системное ---
 	"editor.formatOnSave": true,
