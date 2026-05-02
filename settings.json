@@ -89,7 +89,15 @@
 			"commands": [
 				"workbench.action.toggleSidebarVisibility"
 			]
-		}
+		},
+		{
+			"before": ["<leader>", "d", "b"],
+			"commands": ["editor.debug.action.toggleBreakpoint"]
+		},
+		{
+			"before": ["<leader>", "d", "c"],
+			"commands": ["editor.debug.action.conditionalBreakpoint"]
+		},
 	],
 	// --- Системное ---
 	"editor.formatOnSave": true,
