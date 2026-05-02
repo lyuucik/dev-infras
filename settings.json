@@ -134,6 +134,24 @@
 				"editor.action.showHover"
 			]
 		}, // Показать документацию/тип при наведении (вместо мышки)
+				{
+			"before": [
+				"<leader>",
+				"s"
+			],
+			"commands": [
+				"workbench.action.gotoSymbol"
+			]
+		}, // Поиск по символам ВНУТРИ файла (функции, переменные)
+		{
+			"before": [
+				"<leader>",
+				"S"
+			],
+			"commands": [
+				"workbench.action.showAllSymbols"
+			]
+		}, // Поиск по символам во ВСЕМ проекте
 	],
 	// --- Системное ---
 	"editor.formatOnSave": true,
